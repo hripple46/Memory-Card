@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 function App() {
-  return (
-    <div>
-      <div className="cardContainer">
-        <Card cardId="1" />
-        <Card cardId="2" />
-        <Card cardId="3" />
-      </div>
-    </div>
-  );
+  let displayCards = () => {
+    let arrayOfCards = [1, 2, 3, 4];
+    let newArrayOfCards = arrayOfCards.map((index) => (
+      <Card cardId={index} key={index} />
+    ));
+    return <div className="cardContainer">{newArrayOfCards}</div>;
+  };
+
+  return <div>{displayCards()}</div>;
 }
 
 export default App;
