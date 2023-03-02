@@ -11,16 +11,31 @@ export default function Card() {
   let [cards, setCards] = useState(initialCards);
 
   let updateClickedStatus = (e) => {
-    console.log(cards);
-    console.log(e.target.id);
+    //console.log(cards);
+    //console.log(e.target.id);
     let newArray = [...cards];
     for (let i = 0; i < newArray.length; i++) {
       if (newArray[i].id === parseInt(e.target.id)) {
         newArray[i].clicked = true;
       }
     }
-    console.log(newArray);
+    //console.log(newArray);
     setCards(newArray);
+    shuffleArray();
+  };
+
+  let shuffleArray = () => {
+    let shuffledArray = [...cards];
+
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * i);
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    console.log(shuffledArray);
+    setCards(shuffledArray);
   };
 
   return (
@@ -34,7 +49,7 @@ export default function Card() {
         >
           {`${index.id}`}
           <br />
-          {"Clicked : " + `${cards[index.id].clicked}`}
+          {"Clicked : " + `${index.clicked}`}
         </div>
       ))}
     </div>
