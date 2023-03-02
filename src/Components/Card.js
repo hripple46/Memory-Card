@@ -31,7 +31,11 @@ export default function Card() {
           id={index.id}
           key={index.id}
           onClick={updateClickedStatus}
-        />
+        >
+          {`${index.id}`}
+          <br />
+          {"Clicked : " + `${cards[index.id].clicked}`}
+        </div>
       ))}
     </div>
   );
