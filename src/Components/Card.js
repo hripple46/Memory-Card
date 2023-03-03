@@ -7,6 +7,8 @@ export default function Card() {
     { id: 0, clicked: false },
     { id: 1, clicked: false },
     { id: 2, clicked: false },
+    { id: 3, clicked: false },
+    { id: 4, clicked: false },
   ];
 
   let [cards, setCards] = useState(initialCards);
