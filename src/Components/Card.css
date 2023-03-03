@@ -5,3 +5,21 @@
   border: 1px solid black;
   margin: 6px;
 }
+.card > p {
+  display: none;
+}
+#card0 {
+  background-color: #016064;
+}
+#card1 {
+  background-color: blue;
+}
+#card2 {
+  background-color: green;
+}
+#card3 {
+  background-color: aqua;
+}
+#card4 {
+  background-color: blueviolet;
+}

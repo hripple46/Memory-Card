@@ -18,8 +18,9 @@ export default function Card() {
     //console.log(cards);
     //console.log(e.target.id);
     let newArray = [...cards];
+    console.log(e.target.id.charAt(4));
     for (let i = 0; i < newArray.length; i++) {
-      if (newArray[i].id === parseInt(e.target.id)) {
+      if (newArray[i].id === parseInt(e.target.id.charAt(4))) {
         console.log(newArray[i].clicked);
         //changing click state to update effect in Gameboard component
         if (!newArray[i].clicked) {
@@ -55,13 +56,15 @@ export default function Card() {
       {cards.map((index) => (
         <div
           className="card"
-          id={index.id}
+          id={"card" + index.id}
           key={index.id}
           onClick={updateClickedStatus}
         >
-          {`${index.id}`}
-          <br />
-          {"Clicked : " + `${index.clicked}`}
+          <p>
+            {`${index.id}`}
+            <br />
+            {"Clicked : " + `${index.clicked}`}
+          </p>
         </div>
       ))}
     </div>
