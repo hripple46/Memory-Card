@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css";
+import Gameboard from "./Scoreboard";
 
 export default function Card() {
   let initialCards = [
@@ -9,6 +10,7 @@ export default function Card() {
   ];
 
   let [cards, setCards] = useState(initialCards);
+  let [clickStatus, setClickStatus] = useState(0);
 
   let updateClickedStatus = (e) => {
     //console.log(cards);
@@ -16,6 +18,13 @@ export default function Card() {
     let newArray = [...cards];
     for (let i = 0; i < newArray.length; i++) {
       if (newArray[i].id === parseInt(e.target.id)) {
+        console.log(newArray[i].clicked);
+        //changing click state to update effect in Gameboard component
+        if (!newArray[i].clicked) {
+          setClickStatus(clickStatus + 1);
+        } else {
+          setClickStatus(0);
+        }
         newArray[i].clicked = true;
       }
     }
@@ -40,6 +49,7 @@ export default function Card() {
 
   return (
     <div>
+      <Gameboard currentScore={clickStatus} />
       {cards.map((index) => (
         <div
           className="card"
